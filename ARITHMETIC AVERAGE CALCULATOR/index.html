@@ -1,0 +1,108 @@
+<html>
+<head>
+  <title>Arithmetic Average Calculator</title>
+  <style>
+ body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      margin: 0;
+      padding: 20px;
+    }
+h1 {
+  text-align: center;
+  color: #00ff00;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-top: 10px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #000;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+}
+
+.number-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #00ff00;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00ff00;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #33ff33;
+}
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #00ff00;
+  font-size: 20px;
+}
+  </style>
+  <script>
+    // Function to calculate the average
+    function calculateAverage() {
+      var inputs = document.getElementsByClassName("number-input");
+      var sum = 0;
+
+      for (var i = 0; i < inputs.length; i++) {
+        var inputValue = parseFloat(inputs[i].value);
+        sum += inputValue;
+      }
+
+      var average = sum / inputs.length;
+      document.getElementById("result").textContent = "Average: " + average.toFixed(2);
+    }
+
+    // Function to add a new number input field
+var inputCount = 1;
+
+// Function to add a new number input field
+function addInputField() {
+  var inputContainer = document.getElementById("input-container");
+  var newInput = document.createElement("input");
+  newInput.className = "number-input";
+  newInput.type = "number";
+  newInput.placeholder = "Number #" + (inputCount + 1);
+  inputContainer.appendChild(newInput);
+
+  // Increment the counter
+  inputCount++;
+}
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Arithmetic Average Calculator</h1>
+    <div id="input-container">
+      <input class="number-input" type="number" placeholder="Number #1">
+    </div>
+    <button class="btn" onclick="addInputField()">Add Number</button>
+    <button class="btn" onclick="calculateAverage()">Calculate Average</button>
+    <p id="result"></p>
+  </div>
+</body>
+</html>
